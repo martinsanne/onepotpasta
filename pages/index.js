@@ -89,12 +89,9 @@ export default function Home() {
 
         <h2 className={styles.title}>Valgfri topping</h2>
         <ul className={styles.list}>
-          <li>2 never valgfri ost revet (valgfritt)</li>
+          <li>2 never valgfri ost (mozarella er digg!)</li>
           <li>Frisk basilikum</li>
-          <li>
-            2 never bønner eller kikerter (valgfritt) min favoritt er
-            edamamebønner uten skall fra frysedisken
-          </li>
+          <li>2 never edamamebønner uten skall fra frysedisken</li>
         </ul>
 
         <h2 className={styles.title}>Fremgangsmåte</h2>
