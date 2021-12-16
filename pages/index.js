@@ -132,7 +132,7 @@ export default function Home() {
             <span className="wprm-recipe-ingredient-name">salt og pepper</span>
           </li>
         </ul>
-        <h1 className={styles.title}>Ingredienser</h1>
+        <h1 className={styles.title}>Fremgangsmåte</h1>
         <ol>
           <li>
             Bruk en vid kjele. Brekk gjerne spagettien i to og ha alle
