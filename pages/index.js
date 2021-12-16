@@ -12,58 +12,141 @@ export default function Home() {
       </Head>
 
       <main className={styles.main}>
-        <h1 className={styles.title}>
-          Welcome to <a href="https://nextjs.org">Next.js!</a>
-        </h1>
-
-        <p className={styles.description}>
-          Get started by editing{' '}
-          <code className={styles.code}>pages/index.js</code>
-        </p>
-
-        <div className={styles.grid}>
-          <a href="https://nextjs.org/docs" className={styles.card}>
-            <h2>Documentation &rarr;</h2>
-            <p>Find in-depth information about Next.js features and API.</p>
-          </a>
-
-          <a href="https://nextjs.org/learn" className={styles.card}>
-            <h2>Learn &rarr;</h2>
-            <p>Learn about Next.js in an interactive course with quizzes!</p>
-          </a>
-
-          <a
-            href="https://github.com/vercel/next.js/tree/master/examples"
-            className={styles.card}
+        <h1 className={styles.title}>Ingredienser</h1>
+        <ul className="wprm-recipe-ingredients">
+          <li
+            className="wprm-recipe-ingredient"
+            style={{ listStyleType: 'disc' }}
+            data-uid={0}
           >
-            <h2>Examples &rarr;</h2>
-            <p>Discover and deploy boilerplate example Next.js projects.</p>
-          </a>
-
-          <a
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-            className={styles.card}
+            <span className="wprm-recipe-ingredient-amount">200</span>{' '}
+            <span className="wprm-recipe-ingredient-unit">g</span>{' '}
+            <span className="wprm-recipe-ingredient-name">spaghetti</span>{' '}
+            <span className="wprm-recipe-ingredient-notes wprm-recipe-ingredient-notes-faded">
+              gjerne fullkorn
+            </span>
+          </li>
+          <li
+            className="wprm-recipe-ingredient"
+            style={{ listStyleType: 'disc' }}
+            data-uid={1}
           >
-            <h2>Deploy &rarr;</h2>
-            <p>
-              Instantly deploy your Next.js site to a public URL with Vercel.
-            </p>
-          </a>
-        </div>
+            <span className="wprm-recipe-ingredient-amount">200</span>{' '}
+            <span className="wprm-recipe-ingredient-unit">g</span>{' '}
+            <span className="wprm-recipe-ingredient-name">
+              søte cherrytomater
+            </span>{' '}
+            <span className="wprm-recipe-ingredient-notes wprm-recipe-ingredient-notes-faded">
+              delt i to{' '}
+            </span>
+          </li>
+          <li
+            className="wprm-recipe-ingredient"
+            style={{ listStyleType: 'disc' }}
+            data-uid={2}
+          >
+            <span className="wprm-recipe-ingredient-amount">1 </span>{' '}
+            <span className="wprm-recipe-ingredient-name">rødløk</span>{' '}
+            <span className="wprm-recipe-ingredient-notes wprm-recipe-ingredient-notes-faded">
+              i halvsirkler
+            </span>
+          </li>
+          <li
+            className="wprm-recipe-ingredient"
+            style={{ listStyleType: 'disc' }}
+            data-uid={3}
+          >
+            <span className="wprm-recipe-ingredient-amount">3</span>{' '}
+            <span className="wprm-recipe-ingredient-name">hvitløksfedd</span>{' '}
+            <span className="wprm-recipe-ingredient-notes wprm-recipe-ingredient-notes-faded">
+              finhakket
+            </span>
+          </li>
+          <li
+            className="wprm-recipe-ingredient"
+            style={{ listStyleType: 'disc' }}
+            data-uid={4}
+          >
+            <span className="wprm-recipe-ingredient-amount">100</span>{' '}
+            <span className="wprm-recipe-ingredient-unit">g</span>{' '}
+            <span className="wprm-recipe-ingredient-name">spinat</span>{' '}
+            <span className="wprm-recipe-ingredient-notes wprm-recipe-ingredient-notes-faded">
+              grovhakket{' '}
+            </span>
+          </li>
+          <li
+            className="wprm-recipe-ingredient"
+            style={{ listStyleType: 'disc' }}
+            data-uid={5}
+          >
+            <span className="wprm-recipe-ingredient-amount">1/2</span>{' '}
+            <span className="wprm-recipe-ingredient-unit">ts</span>{' '}
+            <span className="wprm-recipe-ingredient-name">
+              chiliflak / 1/2 chili
+            </span>{' '}
+            <span className="wprm-recipe-ingredient-notes wprm-recipe-ingredient-notes-faded">
+              finhakket
+            </span>
+          </li>
+          <li
+            className="wprm-recipe-ingredient"
+            style={{ listStyleType: 'disc' }}
+            data-uid={6}
+          >
+            <span className="wprm-recipe-ingredient-amount">1</span>{' '}
+            <span className="wprm-recipe-ingredient-unit">ss</span>{' '}
+            <span className="wprm-recipe-ingredient-name">balsamicoeddik</span>
+          </li>
+          <li
+            className="wprm-recipe-ingredient"
+            style={{ listStyleType: 'disc' }}
+            data-uid={7}
+          >
+            <span className="wprm-recipe-ingredient-amount">1 </span>{' '}
+            <span className="wprm-recipe-ingredient-unit">ss</span>{' '}
+            <span className="wprm-recipe-ingredient-name">buljongpulver</span>
+          </li>
+          <li
+            className="wprm-recipe-ingredient"
+            style={{ listStyleType: 'disc' }}
+            data-uid={8}
+          >
+            <span className="wprm-recipe-ingredient-amount">6</span>{' '}
+            <span className="wprm-recipe-ingredient-unit">dl</span>{' '}
+            <span className="wprm-recipe-ingredient-name">vann</span>
+          </li>
+          <li
+            className="wprm-recipe-ingredient"
+            style={{ listStyleType: 'disc' }}
+            data-uid={9}
+          >
+            <span className="wprm-recipe-ingredient-amount">2</span>{' '}
+            <span className="wprm-recipe-ingredient-unit">ss</span>{' '}
+            <span className="wprm-recipe-ingredient-name">olivenolje</span>
+          </li>
+          <li
+            className="wprm-recipe-ingredient"
+            style={{ listStyleType: 'disc' }}
+            data-uid={10}
+          >
+            <span className="wprm-recipe-ingredient-name">salt og pepper</span>
+          </li>
+        </ul>
+        <h1 className={styles.title}>Ingredienser</h1>
+        <ol>
+          <li>
+            Bruk en vid kjele. Brekk gjerne spagettien i to og ha alle
+            ingrediensene, utenom toppingen, i kjelen.
+          </li>
+          <li>
+            Kok under jevnlig omrøring i 8–10 minutter til spagettien er al
+            dente og vannet er kokt inn.
+          </li>
+          <li>Smak til med salt og pepper, og topp med ost og basilikum.</li>
+        </ol>
       </main>
 
-      <footer className={styles.footer}>
-        <a
-          href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Powered by{' '}
-          <span className={styles.logo}>
-            <Image src="/vercel.svg" alt="Vercel Logo" width={72} height={16} />
-          </span>
-        </a>
-      </footer>
+      <footer className={styles.footer}></footer>
     </div>
   )
 }
