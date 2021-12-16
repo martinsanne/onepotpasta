@@ -1,8 +1,75 @@
 import Head from 'next/head'
-import Image from 'next/image'
+import { useState, useEffect } from 'react'
 import styles from '../styles/Home.module.css'
 
+const ingredients = [
+  { amount: 200, unit: 'g', name: 'spaghetti', note: 'gjerne fullkorn' },
+  { amount: 200, unit: 'g', name: 'søte cherrytomater', note: 'delt i to' },
+  { amount: 1, unit: null, name: 'rødløk', note: 'i halvsirkler' },
+  { amount: 3, unit: null, name: 'hvitløksfedd', note: 'finhakket' },
+  { amount: 100, unit: 'g', name: 'fersk spinat', note: 'grovhakket' },
+  { amount: 1, unit: 'ss', name: 'balsamicoeddik', note: 'balsamicoeddik' },
+  { amount: 2, unit: 'ss', name: 'olivenolje', note: null },
+  { amount: 0.5, unit: 'ts', name: 'chiliflak', note: null },
+  { amount: 1, unit: 'ss', name: 'buljongpulver', note: null },
+  { amount: 6, unit: 'dl', name: 'vann', note: null },
+  { name: 'salt og pepper', note: null },
+]
+
+const topping = [
+  {
+    amount: 2,
+    unit: 'never',
+    name: 'valgfri ost',
+    note: '(mozarella er digg!)',
+  },
+  {
+    amount: 2,
+    unit: 'never',
+    name: 'edamamebønner',
+    note: 'uten skall fra frysedisken',
+  },
+  { name: 'Frisk basilikum' },
+]
+
+const Ingredient = ({ amount, unit, name, note }) => {
+  return (
+    <label>
+      <input type="checkbox" />
+      {amount && <span>{amount} </span>}
+      {unit && <span>{unit} </span>}
+      {name && <span>{name} </span>}
+      {note && <span>{note} </span>}
+    </label>
+  )
+}
+
 export default function Home() {
+  const recipeBaseFor = 2
+
+  const [people, setPeople] = useState(2)
+  const [ingredientsCalculated, setIngredientsCalculated] =
+    useState(ingredients)
+  const [toppingCalculated, setToppingCalculated] = useState(topping)
+
+  const calculateAmounts = (arr, multiplier) => {
+    return [...arr].map((item) => {
+      if (item?.amount) {
+        return {
+          ...item,
+          amount: item?.amount * multiplier,
+        }
+      }
+      return item
+    })
+  }
+
+  useEffect(() => {
+    const multiplier = people / recipeBaseFor
+    setIngredientsCalculated(calculateAmounts(ingredients, multiplier))
+    setToppingCalculated(calculateAmounts(topping, multiplier))
+  }, [people])
+
   return (
     <div className={styles.container}>
       <Head>
@@ -12,86 +79,41 @@ export default function Home() {
 
       <main className={styles.main}>
         <h1 className={styles.title}>Skikkelig digg one-pot pasta</h1>
+
+        <h3>For {people} personer</h3>
+        <input
+          type="range"
+          min="2"
+          max="12"
+          value={people}
+          onChange={(event) => {
+            setPeople(event.target.value)
+          }}
+          step="1"
+          style={{ width: '100%' }}
+        />
         <hr />
+
         <h2 className={styles.title}>Ingredienser</h2>
         <ul className={styles.list}>
-          <li data-uid={0}>
-            <label>
-              <input type="checkbox" />
-              <span>200</span> <span>g</span> <span>spaghetti</span>{' '}
-              <span>gjerne fullkorn</span>
-            </label>
-          </li>
-          <li data-uid={1}>
-            <label>
-              <input type="checkbox" />
-              <span>200</span> <span>g</span> <span>søte cherrytomater</span>{' '}
-              <span>delt i to </span>
-            </label>
-          </li>
-          <li data-uid={2}>
-            <label>
-              <input type="checkbox" />
-              <span>1 </span> <span>rødløk</span> <span>i halvsirkler</span>
-            </label>
-          </li>
-          <li data-uid={3}>
-            <label>
-              <input type="checkbox" />
-              <span>3</span> <span>hvitløksfedd</span> <span>finhakket</span>
-            </label>
-          </li>
-          <li data-uid={4}>
-            <label>
-              <input type="checkbox" />
-              <span>100</span> <span>g</span> <span>spinat</span>{' '}
-              <span>grovhakket </span>
-            </label>
-          </li>
-          <li data-uid={5}>
-            <label>
-              <input type="checkbox" />
-              <span>1/2</span> <span>ts</span>{' '}
-              <span>chiliflak / 1/2 chili</span> <span>finhakket</span>
-            </label>
-          </li>
-          <li data-uid={6}>
-            <label>
-              <input type="checkbox" />
-              <span>1</span> <span>ss</span> <span>balsamicoeddik</span>
-            </label>
-          </li>
-          <li data-uid={7}>
-            <label>
-              <input type="checkbox" />
-              <span>1 </span> <span>ss</span> <span>buljongpulver</span>
-            </label>
-          </li>
-          <li data-uid={8}>
-            <label>
-              <input type="checkbox" />
-              <span>6</span> <span>dl</span> <span>vann</span>
-            </label>
-          </li>
-          <li data-uid={9}>
-            <label>
-              <input type="checkbox" />
-              <span>2</span> <span>ss</span> <span>olivenolje</span>
-            </label>
-          </li>
-          <li data-uid={10}>
-            <label>
-              <input type="checkbox" />
-              <span>salt og pepper</span>
-            </label>
-          </li>
+          {ingredientsCalculated.map((props, i) => {
+            return (
+              <li key={i}>
+                <Ingredient {...props} />
+              </li>
+            )
+          })}
         </ul>
 
         <h2 className={styles.title}>Valgfri topping</h2>
         <ul className={styles.list}>
-          <li>2 never valgfri ost (mozarella er digg!)</li>
-          <li>Frisk basilikum</li>
-          <li>2 never edamamebønner uten skall fra frysedisken</li>
+          {toppingCalculated.map((props, i) => {
+            return (
+              <li key={i}>
+                <Ingredient {...props} />
+              </li>
+            )
+          })}
         </ul>
 
         <h2 className={styles.title}>Fremgangsmåte</h2>
