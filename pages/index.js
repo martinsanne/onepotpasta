@@ -132,6 +132,15 @@ export default function Home() {
             <span className="wprm-recipe-ingredient-name">salt og pepper</span>
           </li>
         </ul>
+        <h1 className={styles.title}>Valgfri topping</h1>
+        <ul>
+          <li>2 never valgfri ost revet (valgfritt)</li>
+          <li>Frisk basilikum</li>
+          <li>
+            2 never bønner eller kikerter (valgfritt) min favoritt er
+            edamamebønner uten skall fra frysedisken
+          </li>
+        </ul>
         <h1 className={styles.title}>Fremgangsmåte</h1>
         <ol>
           <li>
