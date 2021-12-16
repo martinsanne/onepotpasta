@@ -13,3 +13,7 @@
 .list li {
   margin-top: 10px;
 }
+
+.list input {
+  margin-right: 10px;
+}
